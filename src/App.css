@@ -1,0 +1,53 @@
+*,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Noto Serif Bengali", serif;
+  font-family: "Poppins", sans-serif;
+}
+.app {
+  width: 100%;
+}
+
+svg {
+  background-color: rgb(255, 255, 255);
+  border: 2px solid #635f5d;
+}
+
+.land {
+  fill: #d8d8d8;
+}
+
+.interiors {
+  fill: none;
+  stroke: #bbbaba;
+}
+
+.sphere {
+  fill: #ececec;
+}
+
+.graticule {
+  fill: none;
+  stroke: #5c6b70;
+  stroke-width: 0.5px;
+}
+
+.ticks text {
+  fill: #635f5d;
+  font-weight: 400;
+  font-size: 12.5px;
+}
+
+.chart-label {
+  font-size: 12.5px;
+  font-weight: 500;
+  fill: #635f5d;
+}
+
+.migrantStats {
+  font-size: 13px;
+  fill: #635f5d;
+  font-weight: 400;
+}

@@ -1,0 +1,262 @@
+.home {
+  position: relative;
+  width: 100%;
+  z-index: 10;
+}
+
+.home .bannerDiv {
+  position: relative;
+  top: -80px;
+  width: 100%;
+}
+
+.home .bannerDiv > img {
+  width: 100%;
+}
+
+.home .bannerDiv > div {
+  position: absolute;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+
+.home .bannerDiv > div > img {
+  width: 100%;
+}
+
+.home .bannerDiv > div:nth-child(2) {
+  top: 50%;
+  left: 50%;
+  transform: translate(-10%, -40%);
+  background-color: red;
+  width: 30%;
+  height: 60%;
+}
+
+.home .bannerDiv > div:last-child {
+  top: 50%;
+  left: 50%;
+  transform: translate(-90%, -60%);
+  background-color: blue;
+  width: 30%;
+  height: 60%;
+}
+
+.home .worldMapVisual {
+  position: relative;
+  top: -80px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.home .worldMapVisual > div:first-child {
+  width: 100%;
+  padding: 70px 10px 50px 10px;
+}
+
+.home .worldMapVisual > div > h1 {
+  font-weight: 400;
+  text-align: center;
+  letter-spacing: 3px;
+  margin: 0px;
+  font-size: 20px;
+  color: #0035a0;
+}
+
+.home .worldMapVisual .multiVisualComp {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home .worldMapVisual .disclaimer {
+  width: 80%;
+  padding: 20px 10px;
+  font-size: 13px;
+  text-align: center;
+  color: gray;
+}
+
+.home .worldMapVisual .disclaimer span {
+  color: black;
+  font-weight: 500;
+}
+
+.home .dataDiv {
+  width: 90%;
+  margin: auto;
+  margin-bottom: 100px;
+  display: grid;
+  grid-template-columns: repeat(2, 20% 80%);
+  gap: 30px;
+}
+
+.home .dataDiv > div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+
+.home .dataDiv > div > img {
+  width: 100%;
+}
+
+.home .dataDiv > div > h1 {
+  margin: 0px 10px;
+  letter-spacing: 3px;
+  font-weight: 500;
+}
+
+.home .dataDiv > div > p {
+  margin: 10px;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.home .dataDiv > div > div > button {
+  padding: 15px 30px;
+  border: none;
+  outline: none;
+  margin: 10px;
+  letter-spacing: 3px;
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  background-color: #3f73c7;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.home .dataDiv > div > div > button:hover {
+  background-color: #315ca2;
+  transition: 0.3s;
+}
+
+.home .dataDiv > div > div > button:active {
+  background-color: #3f73c7;
+  transition: 0.1s;
+}
+
+/* ----------------------------------------------------------- */
+
+/* responsive css */
+
+@media all and (max-width: 1200px) {
+  .home .dataDiv {
+    grid-template-columns: repeat(2, 25% 75%);
+    gap: 20px;
+  }
+
+  .home .dataDiv > div > p {
+    font-size: 14px;
+    letter-spacing: 1px;
+  }
+
+  .home .dataDiv > div > div > button {
+    padding: 10px 20px;
+    letter-spacing: 2px;
+    font-size: 15px;
+  }
+}
+
+@media all and (max-width: 1000px) {
+  .home .worldMapVisual .multiVisualComp {
+    overflow-x: scroll;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .home .multiVisualComp::-webkit-scrollbar {
+    width: 0 !important;
+  }
+
+  .home .worldMapVisual .disclaimer {
+    width: 100%;
+    font-size: 12px;
+  }
+}
+
+@media all and (max-width: 800px) {
+  .home .dataDiv {
+    grid-template-columns: repeat(2, 35% 65%);
+    gap: 15px;
+  }
+
+  .home .dataDiv > div > div {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    box-sizing: border-box;
+    padding: 10px;
+  }
+
+  .home .dataDiv > div > div > button {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 5px auto;
+  }
+}
+
+@media all and (max-width: 750px) {
+  .home .dataDiv {
+    grid-template-columns: repeat(1, auto);
+    gap: 15px;
+  }
+
+  .home .dataDiv > div > p {
+    font-size: 15px;
+    letter-spacing: 1px;
+    text-align: justify;
+  }
+
+  .home .dataDiv > div > div > button {
+    padding: 15px 20px;
+    letter-spacing: 2px;
+    font-size: 16px;
+  }
+
+  .home .dataDiv > div > img {
+    width: 50%;
+    margin: auto;
+  }
+}
+
+@media all and (max-width: 550px) {
+  .home .worldMapVisual > div > h1 {
+    font-size: 16px;
+  }
+}
+
+@media all and (max-width: 500px) {
+  .home .worldMapVisual > div > h1 {
+    font-size: 14px;
+  }
+}
+
+@media all and (max-width: 450px) {
+  .home .worldMapVisual > div > h1 {
+    font-size: 13px;
+  }
+
+  .home .worldMapVisual .disclaimer {
+    width: 100%;
+    font-size: 10px;
+  }
+}
+
+@media all and (max-width: 400px) {
+  .home .worldMapVisual > div > h1 {
+    font-size: 10px;
+  }
+
+  .home .worldMapVisual .disclaimer {
+    width: 100%;
+    font-size: 9px;
+  }
+}

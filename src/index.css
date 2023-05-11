@@ -1,0 +1,13 @@
+body {
+  margin: 0;
+  padding: 20px 10px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Noto Serif Bengali", serif;
+  font-family: "Rubik", sans-serif;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}

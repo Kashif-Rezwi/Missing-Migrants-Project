@@ -1,0 +1,30 @@
+nav {
+  z-index: 100;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0px;
+  background-color: transparent;
+}
+
+.logo {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 25px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.logo > img {
+  width: 60px;
+}
+
+.logo h1 {
+  position: relative;
+  top: 2px;
+  margin: 0px 0px 0px 10px;
+}
