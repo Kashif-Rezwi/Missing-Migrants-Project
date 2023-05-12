@@ -27,7 +27,6 @@
   top: 50%;
   left: 50%;
   transform: translate(-10%, -40%);
-  background-color: red;
   width: 30%;
   height: 60%;
 }
@@ -36,7 +35,6 @@
   top: 50%;
   left: 50%;
   transform: translate(-90%, -60%);
-  background-color: blue;
   width: 30%;
   height: 60%;
 }
@@ -235,28 +233,28 @@
 
 @media all and (max-width: 500px) {
   .home .worldMapVisual > div > h1 {
-    font-size: 14px;
+    font-size: 15px;
   }
 }
 
 @media all and (max-width: 450px) {
   .home .worldMapVisual > div > h1 {
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .home .worldMapVisual .disclaimer {
     width: 100%;
-    font-size: 10px;
+    font-size: 12px;
   }
 }
 
 @media all and (max-width: 400px) {
   .home .worldMapVisual > div > h1 {
-    font-size: 10px;
+    font-size: 14px;
   }
 
   .home .worldMapVisual .disclaimer {
     width: 100%;
-    font-size: 9px;
+    font-size: 10px;
   }
 }
