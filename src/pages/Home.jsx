@@ -54,6 +54,15 @@ export const Home = () => {
             </div>
           </div>
         </div>
+
+        <div className={homeStyle.migrantsBarChart}>
+          <div>
+            <img src="./Images/migrants.jpeg" alt="migrants" />
+          </div>
+          <div>
+            <img src="./Images/migrants.jpeg" alt="migrants" />
+          </div>
+        </div>
       </section>
     </>
   );

@@ -98,6 +98,7 @@
   flex-direction: column;
   justify-content: space-evenly;
   align-items: flex-start;
+  flex-wrap: wrap;
 }
 
 .home .dataDiv > div > img {
@@ -138,6 +139,22 @@
 .home .dataDiv > div > div > button:active {
   background-color: #3f73c7;
   transition: 0.1s;
+}
+
+.home .migrantsBarChart {
+  width: 90%;
+  border: 1px solid red;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: auto;
+}
+
+.home .migrantsBarChart > div {
+  width: 100%;
+}
+
+.home .migrantsBarChart > div > img {
+  width: 100%;
 }
 
 /* ----------------------------------------------------------- */
