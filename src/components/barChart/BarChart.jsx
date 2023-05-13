@@ -12,8 +12,6 @@ const margin = { top: 50, right: 50, bottom: 50, left: 50 };
 const dateFormat = timeFormat("%x");
 const xValue = (el) => el["Incident Date"];
 const yValue = (el) => el["Total Number of Dead and Missing"];
-const barChartLabelBottom = "Incident Date";
-const barChartLabelLeft = "Total Number of Dead and Missing";
 
 export const BarChart = () => {
   const data = useData(getData);
