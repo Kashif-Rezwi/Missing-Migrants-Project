@@ -1,4 +1,5 @@
 import { WorldMap } from "../components/WorldMap";
+import { BarChart } from "../components/barChart/BarChart";
 import homeStyle from "../components/home/home.module.css";
 
 export const Home = () => {
@@ -60,7 +61,7 @@ export const Home = () => {
             <img src="./Images/migrants.jpeg" alt="migrants" />
           </div>
           <div>
-            <img src="./Images/migrants.jpeg" alt="migrants" />
+            <BarChart />
           </div>
         </div>
       </section>

@@ -3,13 +3,14 @@ import { useData } from "../hooks/useData";
 import { BubbleMap } from "./bubbleMap/BubbleMap";
 import { DateHistogram } from "./dateHistogram/DateHistogram";
 import { useState } from "react";
+import { getData } from "../api/apiMM";
 
 export const WorldMap = () => {
   const width = 960;
   const height = 500;
   const dateHistogramSize = 0.3;
   const worldAtlas = useWorldAtlas();
-  const data = useData();
+  const data = useData(getData);
   // updateing the brush selected data
   const [brushExtent, setBrushExtent] = useState();
 
