@@ -72,7 +72,7 @@ export const WorldMap = () => {
   ];
   // console.log(data);
   return (
-    <svg style={{ minWidth: width }} height={height}>
+    <svg className="worldMap" style={{ minWidth: width }} height={height}>
       <BubbleMap
         data={data}
         filteredData={filteredData}

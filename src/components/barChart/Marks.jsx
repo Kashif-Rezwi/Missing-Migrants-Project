@@ -1,14 +1,15 @@
 export const Marks = ({ binnedData, xScale, yScale, innerHeight }) => {
   return (
-    <g className="marks">
+    <g>
       {binnedData.map((bin, i) => (
         <rect
+          className="bars"
           key={i}
           x={xScale(bin.incidentYear)}
           y={yScale(bin.totalDeadAndMissing)}
           width={xScale.bandwidth()}
           height={innerHeight - yScale(bin.totalDeadAndMissing)}
-          fill="#4589ff"
+          fill="#d9e0f1"
         >
           <title>{bin.totalDeadAndMissing}</title>
         </rect>

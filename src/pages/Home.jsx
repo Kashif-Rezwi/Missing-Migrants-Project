@@ -1,8 +1,27 @@
+import { useEffect, useRef, useState } from "react";
 import { WorldMap } from "../components/WorldMap";
 import { BarChart } from "../components/barChart/BarChart";
 import homeStyle from "../components/home/home.module.css";
 
 export const Home = () => {
+  const svgBarChart = useRef();
+  const [dimentions, setDimentions] = useState({ width: 0, height: 0 });
+
+  useEffect(() => {
+    getSvgContainerSize();
+    // listen for resize changes, and detect dimensions again when they change
+    window.addEventListener("resize", getSvgContainerSize);
+    // cleanup event listener
+    return () => window.removeEventListener("resize", getSvgContainerSize);
+  }, [dimentions.width]);
+
+  const getSvgContainerSize = () => {
+    const width = svgBarChart.current.clientWidth;
+    const height = svgBarChart.current.clientHeight;
+    setDimentions({ width, height });
+  };
+  console.log(svgBarChart);
+
   return (
     <>
       <section className={homeStyle.home}>
@@ -60,8 +79,8 @@ export const Home = () => {
           <div>
             <img src="./Images/migrants.jpeg" alt="migrants" />
           </div>
-          <div>
-            <BarChart />
+          <div ref={svgBarChart}>
+            <BarChart width={dimentions.width} height={dimentions.height} />
           </div>
         </div>
       </section>

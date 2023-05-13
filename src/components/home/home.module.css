@@ -143,18 +143,31 @@
 
 .home .migrantsBarChart {
   width: 90%;
-  border: 1px solid red;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   margin: auto;
+  margin-bottom: 100px;
 }
 
 .home .migrantsBarChart > div {
   width: 100%;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .home .migrantsBarChart > div > img {
   width: 100%;
+  height: 100%;
+}
+
+.home .migrantsBarChart > div > svg {
+  background-color: #0035a0;
+}
+
+.home .migrantsBarChart > div .bars:hover {
+  fill: #ffc107;
 }
 
 /* ----------------------------------------------------------- */

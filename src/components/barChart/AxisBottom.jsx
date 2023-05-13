@@ -1,4 +1,4 @@
-export const AxisBottom = ({ xScale, innerHeight, tickFormat }) => {
+export const AxisBottom = ({ xScale, innerHeight }) => {
   // xScale.domain() has array of unique dates and below we are mapping the date for xScale ticks
   return xScale.domain().map((tickValue, i) => {
     // console.log(tickValue);
@@ -10,7 +10,7 @@ export const AxisBottom = ({ xScale, innerHeight, tickFormat }) => {
       >
         <text
           style={{ textAnchor: "middle" }}
-          dx={"36px"}
+          dx={xScale.bandwidth() / 2}
           dy={"30px"}
           y={innerHeight}
         >
