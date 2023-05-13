@@ -1,15 +1,4 @@
-import {
-  scaleLinear,
-  extent,
-  timeFormat,
-  scaleTime,
-  bin,
-  timeMonths,
-  sum,
-  max,
-  timeYears,
-  scaleBand,
-} from "d3";
+import { scaleLinear, timeFormat, bin, sum, max, scaleBand } from "d3";
 import { AxisBottom } from "./AxisBottom";
 import { Marks } from "./Marks";
 import { useData } from "../../hooks/useData";
