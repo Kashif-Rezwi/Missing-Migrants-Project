@@ -1,5 +1,5 @@
 import { csv } from "d3";
-import { coordinates } from "../components/dateHistogram/coordinates";
+import { coordinates } from "../components/worldMap/dateHistogram/coordinates";
 
 export const getData = async (setData) => {
   const csvUrl =

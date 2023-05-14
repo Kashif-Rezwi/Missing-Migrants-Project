@@ -1,13 +1,15 @@
-import { useWorldAtlas } from "../hooks/useWorldAtlas";
-import { useData } from "../hooks/useData";
-import { BubbleMap } from "./bubbleMap/BubbleMap";
+import { useWorldAtlas } from "../../hooks/useWorldAtlas";
+import { useData } from "../../hooks/useData";
 import { DateHistogram } from "./dateHistogram/DateHistogram";
+import { getData } from "../../api/apiMM";
 import { useState } from "react";
-import { getData } from "../api/apiMM";
+import { BubbleMap } from "./bubbleMap/BubbleMap";
+import worldMap from "./worldMap.module.css";
 
 export const WorldMap = () => {
   const width = 960;
   const height = 500;
+
   const dateHistogramSize = 0.3;
   const worldAtlas = useWorldAtlas();
   const data = useData(getData);
@@ -16,9 +18,6 @@ export const WorldMap = () => {
 
   const xValue = (el) => el["Incident Date"];
 
-  if (worldAtlas.length === 0 || data.length === 0) {
-    return <pre>Loading...</pre>;
-  }
   // if brushExtent data is available only the filter the data
   const filteredData = brushExtent
     ? data.filter((el) => {
@@ -70,23 +69,30 @@ export const WorldMap = () => {
     startDate,
     endDate,
   ];
-  // console.log(data);
+
   return (
-    <svg className="worldMap" style={{ minWidth: width }} height={height}>
-      <BubbleMap
-        data={data}
-        filteredData={filteredData}
-        worldAtlas={worldAtlas}
-      />
-      <g transform={`translate(0,${height - dateHistogramSize * height})`}>
-        <DateHistogram
-          data={data}
-          height={dateHistogramSize * height}
-          setBrushExtent={setBrushExtent}
-          xValue={xValue}
-          displayData={displayData}
-        />
-      </g>
-    </svg>
+    <div className={worldMap.worldMapContainer}>
+      {worldAtlas.length === 0 || data.length === 0 ? (
+        <pre>Loading...</pre>
+      ) : (
+        <svg className={worldMap.worldMapSvg} width={width} height={height}>
+          <BubbleMap
+            data={data}
+            filteredData={filteredData}
+            worldAtlas={worldAtlas}
+          />
+          <g transform={`translate(0,${height - dateHistogramSize * height})`}>
+            <DateHistogram
+              data={data}
+              width={width}
+              height={dateHistogramSize * height}
+              setBrushExtent={setBrushExtent}
+              xValue={xValue}
+              displayData={displayData}
+            />
+          </g>
+        </svg>
+      )}
+    </div>
   );
 };

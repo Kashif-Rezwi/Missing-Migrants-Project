@@ -1,0 +1,8 @@
+.worldMapContainer {
+  width: 100%;
+  height: 100%;
+}
+
+.worldMapSvg {
+  background-color: rgb(255, 255, 255);
+}

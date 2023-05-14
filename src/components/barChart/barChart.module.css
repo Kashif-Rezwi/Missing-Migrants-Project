@@ -1,0 +1,142 @@
+.bars {
+  fill: rgb(217 224 241);
+  transition: 0.1s;
+  stroke: white;
+}
+
+.bars:hover {
+  fill: #ffc107;
+  transition: 0.1s;
+}
+
+.labels {
+  fill: white;
+  font-size: 14px;
+}
+
+.barsHeading {
+  fill: white;
+  font-size: 20px;
+  letter-spacing: 4px;
+}
+
+/* ----------------------------------------------------------- */
+
+@media all and (max-width: 1250px) {
+  .labels {
+    font-size: 13px;
+  }
+
+  .barsHeading {
+    font-size: 18px;
+    letter-spacing: 3px;
+  }
+}
+
+@media all and (max-width: 1200px) {
+  .labels {
+    font-size: 12px;
+  }
+}
+
+@media all and (max-width: 1100px) {
+  .labels {
+    font-size: 11px;
+  }
+}
+
+@media all and (max-width: 1000px) {
+  .labels {
+    font-size: 10px;
+  }
+}
+
+@media all and (max-width: 950px) {
+  .labels {
+    font-size: 10px;
+  }
+}
+
+@media all and (max-width: 900px) {
+  .labels {
+    font-size: 16px;
+  }
+
+  .barsHeading {
+    font-size: 20px;
+    letter-spacing: 4px;
+  }
+}
+
+@media all and (max-width: 850px) {
+  .labels {
+    font-size: 15px;
+  }
+}
+
+@media all and (max-width: 750px) {
+  .labels {
+    font-size: 14px;
+  }
+
+  .barsHeading {
+    font-size: 19px;
+    letter-spacing: 3px;
+  }
+}
+
+@media all and (max-width: 650px) {
+  .labels {
+    font-size: 13px;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .labels {
+    font-size: 12px;
+  }
+
+  .barsHeading {
+    font-size: 18px;
+    letter-spacing: 3px;
+  }
+}
+
+@media all and (max-width: 550px) {
+  .labels {
+    font-size: 11px;
+  }
+}
+
+@media all and (max-width: 500px) {
+  .labels {
+    font-size: 10px;
+  }
+
+  .barsHeading {
+    font-size: 17px;
+    letter-spacing: 3px;
+  }
+}
+
+@media all and (max-width: 450px) {
+  .labels {
+    font-size: 9px;
+  }
+
+  .barsHeading {
+    font-size: 16px;
+    letter-spacing: 3px;
+  }
+}
+
+@media all and (max-width: 400px) {
+  .labels {
+    font-size: 8px;
+  }
+
+  .barsHeading {
+    font-size: 16px;
+    letter-spacing: 2px;
+  }
+}

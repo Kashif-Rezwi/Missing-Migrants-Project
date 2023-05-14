@@ -16,11 +16,13 @@
 
 .home .bannerDiv > div {
   position: absolute;
-  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border: 3px solid rgb(31 54 117);
 }
 
 .home .bannerDiv > div > img {
   width: 100%;
+  height: 100%;
 }
 
 .home .bannerDiv > div:nth-child(2) {
@@ -42,16 +44,17 @@
 .home .worldMapVisual {
   position: relative;
   top: -80px;
-  width: 100%;
+  width: 90%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: auto;
 }
 
 .home .worldMapVisual > div:first-child {
   width: 100%;
-  padding: 70px 10px 50px 10px;
+  padding: 70px 0px 50px 0px;
 }
 
 .home .worldMapVisual > div > h1 {
@@ -65,14 +68,18 @@
 
 .home .worldMapVisual .multiVisualComp {
   width: 100%;
+  height: 100%;
+  max-width: 964px;
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 2px solid #635f5d;
+  overflow-x: scroll;
 }
 
 .home .worldMapVisual .disclaimer {
   width: 80%;
-  padding: 20px 10px;
+  padding: 20px 0px;
   font-size: 13px;
   text-align: center;
   color: gray;
@@ -88,8 +95,8 @@
   margin: auto;
   margin-bottom: 100px;
   display: grid;
-  grid-template-columns: repeat(2, 20% 80%);
-  gap: 30px;
+  grid-template-columns: repeat(2, 20% 75%);
+  gap: 50px;
 }
 
 .home .dataDiv > div {
@@ -106,22 +113,27 @@
 }
 
 .home .dataDiv > div > h1 {
-  margin: 0px 10px;
+  margin: 0px;
   letter-spacing: 3px;
   font-weight: 500;
 }
 
 .home .dataDiv > div > p {
-  margin: 10px;
+  margin: 10px 0px;
   font-size: 16px;
   letter-spacing: 1px;
+}
+
+.home .dataDiv > div > div {
+  padding: 0px !important;
 }
 
 .home .dataDiv > div > div > button {
   padding: 15px 30px;
   border: none;
   outline: none;
-  margin: 10px;
+  margin: 10px 0px;
+  margin-right: 20px;
   letter-spacing: 3px;
   font-size: 16px;
   font-weight: 500;
@@ -144,7 +156,7 @@
 .home .migrantsBarChart {
   width: 90%;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 50% 50%);
   margin: auto;
   margin-bottom: 100px;
 }
@@ -162,12 +174,9 @@
   height: 100%;
 }
 
-.home .migrantsBarChart > div > svg {
+.home .migrantsBarChart > div > div > svg {
   background-color: #0035a0;
-}
-
-.home .migrantsBarChart > div .bars:hover {
-  fill: #ffc107;
+  height: 100%;
 }
 
 /* ----------------------------------------------------------- */
@@ -190,16 +199,20 @@
     letter-spacing: 2px;
     font-size: 15px;
   }
+
+  .home .migrantsBarChart > div > img {
+    max-width: 100%;
+    object-fit: cover;
+  }
+}
+
+@media all and (max-width: 1050px) {
+  .home .migrantsBarChart > div {
+    height: 55vh;
+  }
 }
 
 @media all and (max-width: 1000px) {
-  .home .worldMapVisual .multiVisualComp {
-    overflow-x: scroll;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-  }
-
   .home .multiVisualComp::-webkit-scrollbar {
     width: 0 !important;
   }
@@ -207,6 +220,30 @@
   .home .worldMapVisual .disclaimer {
     width: 100%;
     font-size: 12px;
+  }
+
+  .home .migrantsBarChart > div {
+    height: 50vh;
+  }
+}
+
+@media all and (max-width: 900px) {
+  .home .migrantsBarChart {
+    grid-template-columns: repeat(1, 100%);
+  }
+
+  .home .migrantsBarChart > div {
+    height: 75vh;
+  }
+
+  .home .migrantsBarChart > div > img {
+    width: 100%;
+  }
+}
+
+@media all and (max-width: 850px) {
+  .home .migrantsBarChart > div {
+    height: 65vh;
   }
 }
 
@@ -253,23 +290,41 @@
     width: 50%;
     margin: auto;
   }
+
+  .home .migrantsBarChart > div {
+    height: 55vh;
+  }
 }
 
-@media all and (max-width: 550px) {
+@media all and (max-width: 600px) {
+  .home .worldMapVisual .disclaimer {
+    text-align: justify;
+  }
+
   .home .worldMapVisual > div > h1 {
     font-size: 16px;
   }
 }
 
-@media all and (max-width: 500px) {
+@media all and (max-width: 550px) {
   .home .worldMapVisual > div > h1 {
     font-size: 15px;
   }
 }
 
-@media all and (max-width: 450px) {
+@media all and (max-width: 500px) {
   .home .worldMapVisual > div > h1 {
     font-size: 14px;
+  }
+
+  .home .migrantsBarChart > div {
+    height: 50vh;
+  }
+}
+
+@media all and (max-width: 450px) {
+  .home .worldMapVisual > div > h1 {
+    font-size: 13px;
   }
 
   .home .worldMapVisual .disclaimer {
@@ -286,5 +341,9 @@
   .home .worldMapVisual .disclaimer {
     width: 100%;
     font-size: 10px;
+  }
+
+  .home .migrantsBarChart > div {
+    height: 45vh;
   }
 }

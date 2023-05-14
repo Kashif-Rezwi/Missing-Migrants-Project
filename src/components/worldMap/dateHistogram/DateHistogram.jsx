@@ -15,9 +15,8 @@ import { Marks } from "./Marks";
 import { AxisBottom } from "./AxisBottom";
 import { AxisLeft } from "./AxisLeft";
 import { useEffect, useMemo, useRef } from "react";
-import { ColorLegend } from "../ColorLegend";
+import { ColorLegend } from "./ColorLegend";
 
-const width = 960;
 const scatterPlotSize = 5;
 const margin = { top: 0, right: 0, bottom: 45, left: 100 };
 
@@ -25,6 +24,7 @@ const yValue = (el) => el["Total Number of Dead and Missing"];
 
 export const DateHistogram = ({
   data,
+  width,
   height,
   setBrushExtent,
   xValue,
@@ -75,8 +75,8 @@ export const DateHistogram = ({
     [binnedData, innerHeight]
   );
 
-  const scatterPlotLabelLeft = "Total Number of Dead and Missing";
-  const scatterPlotLabelBottom = "Incident Date";
+  const histogramLabelLeft = "Total Number of Dead and Missing";
+  const histogramLabelBottom = "Incident Date";
 
   const xAxisTickFormat = timeFormat("%b/%y");
 
@@ -133,11 +133,11 @@ export const DateHistogram = ({
         <text
           className="chart-label"
           dy={"-80px"}
-          dx={"20px"}
+          dx={"25px"}
           textAnchor="middle"
           transform={`translate(0, ${innerHeight / 2}) rotate(-90)`}
         >
-          {scatterPlotLabelLeft}
+          {histogramLabelLeft}
         </text>
 
         <Marks

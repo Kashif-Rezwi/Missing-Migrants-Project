@@ -10,11 +10,6 @@ body {
   width: 100%;
 }
 
-.worldMap {
-  background-color: rgb(255, 255, 255);
-  border: 2px solid #635f5d;
-}
-
 .land {
   fill: #d8d8d8;
 }

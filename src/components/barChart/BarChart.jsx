@@ -3,55 +3,104 @@ import { AxisBottom } from "./AxisBottom";
 import { Marks } from "./Marks";
 import { useData } from "../../hooks/useData";
 import { getData } from "../../api/apiBar";
+import { useEffect, useMemo, useRef, useState } from "react";
+import barChartStyles from "./barChart.module.css";
+import { AxisTop } from "./AxisTop";
 
-const margin = { top: 50, right: 50, bottom: 50, left: 50 };
 const xValue = (el) => el["Incident Date"];
 const yValue = (el) => el["Total Number of Dead and Missing"];
 
-export const BarChart = ({ width = 0, height = 0 }) => {
+export const BarChart = () => {
   const data = useData(getData);
+  const svgBarChart = useRef(null);
+  const [width, setWidth] = useState(0);
+  const [height, setHeight] = useState(0);
+  const margin = { top: 100, right: width / 15, bottom: 60, left: width / 15 };
 
   const innerWidth = width - margin.left - margin.right;
   const innerHeight = height - margin.top - margin.bottom;
 
-  const NanRemovedDates = data.map(xValue).filter((el) => el !== "0NaN");
+  const getSvgContainerSize = () => {
+    setWidth(svgBarChart.current.clientWidth);
+    setHeight(svgBarChart.current.clientHeight);
+  };
 
-  const xScale = scaleBand()
-    .domain(NanRemovedDates)
-    .range([0, innerWidth])
-    .paddingInner(0.1);
+  useEffect(() => {
+    getSvgContainerSize();
+    // listen for resize changes, and detect dimensions again when they change
+    window.addEventListener("resize", getSvgContainerSize);
+    // cleanup event listener
+    return () => window.removeEventListener("resize", getSvgContainerSize);
+  }, [svgBarChart]);
 
-  const binnedData = bin()
-    .value(xValue)
-    .thresholds(xScale.domain())(data)
-    .map((arr) => ({
-      totalDeadAndMissing: sum(arr, yValue),
-      incidentYear: arr.x0,
-    }));
+  const NanRemovedDates = useMemo(
+    () => data.map(xValue).filter((el) => el !== "0NaN"),
+    [data, xValue]
+  );
 
-  const yScale = scaleLinear()
-    .domain([0, max(binnedData, (el) => el.totalDeadAndMissing)])
-    .range([innerHeight, 0])
-    .nice();
+  const xScale = useMemo(
+    () =>
+      scaleBand()
+        .domain(NanRemovedDates)
+        .range([0, innerWidth])
+        .paddingInner(0.5),
+    [NanRemovedDates, innerWidth]
+  );
 
-  if (!width || !height || !data) {
-    return <pre>Loading...</pre>;
-  }
+  const binnedData = useMemo(
+    () =>
+      bin()
+        .value(xValue)
+        .thresholds(xScale.domain())(data)
+        .map((arr) => ({
+          totalDeadAndMissing: sum(arr, yValue),
+          incidentYear: arr.x0,
+        })),
+    [xValue, xScale, data, yValue]
+  );
+
+  const yScale = useMemo(
+    () =>
+      scaleLinear()
+        .domain([0, max(binnedData, (el) => el.totalDeadAndMissing)])
+        .range([innerHeight, 0])
+        .nice(),
+    [binnedData, innerHeight]
+  );
+
+  // console.log(binnedData);
 
   return (
-    <>
-      <svg width={width} height={height}>
-        <g transform={`translate(${margin.left}, ${margin.top})`}>
-          <AxisBottom xScale={xScale} innerHeight={innerHeight} />
+    <div ref={svgBarChart} style={{ width: "100%", height: "100%" }}>
+      {(!width || !height || !data) && <pre>Loading...</pre>}
+      {width && height && data && (
+        <svg width={width} height={height}>
+          <g transform={`translate(${margin.left}, ${margin.top})`}>
+            <text
+              dy={margin.bottom - margin.top}
+              dx={-10}
+              className={barChartStyles.barsHeading}
+              transform={`translate(0, -10)`}
+            >
+              DEAD AND MISSING BY YEAR
+            </text>
 
-          <Marks
-            binnedData={binnedData}
-            xScale={xScale}
-            yScale={yScale}
-            innerHeight={innerHeight}
-          />
-        </g>
-      </svg>
-    </>
+            <AxisBottom xScale={xScale} innerHeight={innerHeight} />
+            <AxisTop
+              yScale={yScale}
+              binnedData={binnedData}
+              xScale={xScale}
+              innerHeight={innerHeight}
+            />
+            <Marks
+              binnedData={binnedData}
+              xScale={xScale}
+              yScale={yScale}
+              innerHeight={innerHeight}
+            />
+          </g>
+        </svg>
+      )}
+    </div>
   );
 };

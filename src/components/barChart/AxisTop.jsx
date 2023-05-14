@@ -1,19 +1,18 @@
 import barChartStyles from "./barChart.module.css";
 
-export const AxisBottom = ({ xScale, innerHeight }) => {
+export const AxisTop = ({ binnedData, xScale, yScale, innerHeight }) => {
   // xScale.domain() has array of unique dates and below we are mapping the date for xScale ticks
-  return xScale.domain().map((tickValue, i) => {
+  return binnedData.map((el, i) => {
     // console.log(tickValue);
     return (
-      <g key={tickValue} transform={`translate(${xScale(tickValue)}, 0)`}>
+      <g key={i} transform={`translate(${xScale(el.incidentYear)}, 0)`}>
         <text
           className={barChartStyles.labels}
           style={{ textAnchor: "middle" }}
           dx={xScale.bandwidth() / 2}
-          dy={"30px"}
-          y={innerHeight}
+          y={yScale(el.totalDeadAndMissing) - 8}
         >
-          {tickValue}
+          {el.totalDeadAndMissing}
         </text>
       </g>
     );
