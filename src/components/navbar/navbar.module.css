@@ -30,6 +30,10 @@ nav {
 }
 
 @media all and (max-width: 700px) {
+  .logo > img {
+    width: 40px;
+  }
+
   .logo > div {
     display: none;
   }
