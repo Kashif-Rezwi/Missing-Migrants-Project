@@ -179,6 +179,20 @@
   height: 100%;
 }
 
+.home .keyStatistics {
+  width: 90%;
+  margin: auto;
+  margin-bottom: 100px;
+  /* border: 1px solid red; */
+}
+
+.home .keyStatistics > h1 {
+  margin: 0px;
+  margin-bottom: 30px;
+  letter-spacing: 3px;
+  font-weight: 500;
+}
+
 /* ----------------------------------------------------------- */
 
 /* responsive css */

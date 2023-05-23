@@ -1,5 +1,6 @@
 import { BarChart } from "../components/barChart/BarChart";
 import homeStyle from "../components/home/home.module.css";
+import { KeyStatistics } from "../components/keyStatistics/KeyStatistics";
 import { WorldMap } from "../components/worldMap/WorldMap";
 
 export const Home = () => {
@@ -63,6 +64,10 @@ export const Home = () => {
           <div>
             <BarChart />
           </div>
+        </div>
+
+        <div className={homeStyle.keyStatistics}>
+          <KeyStatistics />
         </div>
       </section>
     </>
