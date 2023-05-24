@@ -76,28 +76,41 @@ export const BarChart = () => {
       {width && height && data && (
         <svg width={width} height={height}>
           <g transform={`translate(${margin.left}, ${margin.top})`}>
-            <text
-              dy={margin.bottom - margin.top}
-              dx={-10}
-              className={barChartStyles.barsHeading}
-              transform={`translate(0, -10)`}
-            >
-              DEAD AND MISSING BY YEAR
-            </text>
+            {!binnedData[0].totalDeadAndMissing ? (
+              <text
+                dy={margin.bottom - margin.top}
+                dx={-10}
+                className={barChartStyles.barsHeading}
+                transform={`translate(0, -10)`}
+              >
+                ...LOADING
+              </text>
+            ) : (
+              <>
+                <text
+                  dy={margin.bottom - margin.top}
+                  dx={-10}
+                  className={barChartStyles.barsHeading}
+                  transform={`translate(0, -10)`}
+                >
+                  DEAD AND MISSING BY YEAR
+                </text>
 
-            <AxisBottom xScale={xScale} innerHeight={innerHeight} />
-            <AxisTop
-              yScale={yScale}
-              binnedData={binnedData}
-              xScale={xScale}
-              innerHeight={innerHeight}
-            />
-            <Marks
-              binnedData={binnedData}
-              xScale={xScale}
-              yScale={yScale}
-              innerHeight={innerHeight}
-            />
+                <AxisBottom xScale={xScale} innerHeight={innerHeight} />
+                <AxisTop
+                  yScale={yScale}
+                  binnedData={binnedData}
+                  xScale={xScale}
+                  innerHeight={innerHeight}
+                />
+                <Marks
+                  binnedData={binnedData}
+                  xScale={xScale}
+                  yScale={yScale}
+                  innerHeight={innerHeight}
+                />
+              </>
+            )}
           </g>
         </svg>
       )}
