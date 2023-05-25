@@ -1,3 +1,13 @@
+const keyStatisticsImages = [
+  ["Violence", "./Images/violence.png"],
+  ["Sickness", "./Images/sickness.png"],
+  ["Vehicle", "./Images/vehicle_accident.png"],
+  ["Accidental", "./Images/accident.png"],
+  ["Drowning", "./Images/drowning.png"],
+  ["unknown", "./Images/unknown.png"],
+  ["Harsh", "./Images/harshenvironment.png"],
+];
+
 export const dataFormattingByCause = (DATA) => {
   const binnedData = {};
 
@@ -13,6 +23,13 @@ export const dataFormattingByCause = (DATA) => {
       // If the cause exists, increment the total dead and missing count
       binnedData[cause] += totalDeadAndMissing;
     } else {
+      let multipleCause = cause.split(",");
+      for (let i = 0; i <= multipleCause.length - 1; i++) {
+        if (multipleCause[i] in binnedData) {
+          binnedData[multipleCause[i]] += totalDeadAndMissing;
+          return;
+        }
+      }
       // If the cause doesn't exist, add it to the binned data object
       binnedData[cause] = totalDeadAndMissing;
     }
@@ -20,10 +37,17 @@ export const dataFormattingByCause = (DATA) => {
 
   const binnedDataArray = Object.entries(binnedData);
   let newBinnedData = binnedDataArray.map((el) => {
-    return {
-      CauseOfIncident: el[0],
-      TotalNumberOfDeadAndMissing: el[1],
-    };
+    for (let i = 0; i <= keyStatisticsImages.length - 1; i++) {
+      let arr = el[0].split(" ");
+      if (arr.includes(keyStatisticsImages[i][0])) {
+        let poster = keyStatisticsImages[i][1];
+        return {
+          CauseOfIncident: el[0],
+          TotalNumberOfDeadAndMissing: el[1],
+          causePoster: poster,
+        };
+      }
+    }
   });
 
   return newBinnedData;

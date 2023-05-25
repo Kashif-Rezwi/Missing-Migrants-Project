@@ -73,7 +73,21 @@ export const KeyStatistics = () => {
       </div>
       <div className={keyStatistics.lastBox}>
         <h1>CAUSE OF DEATH</h1>
-        <div></div>
+        <div>
+          {formattedDataByCause.length === 0 ? (
+            <h4 style={{ textAlign: "center", width: "100%" }}>...Loading</h4>
+          ) : (
+            formattedDataByCause?.map((el, i) => {
+              return (
+                <div>
+                  <img src={el.causePoster} alt={el.CauseOfIncident} />
+                  <h1>{formatNumbers(el.TotalNumberOfDeadAndMissing)}</h1>
+                  <p>{el.CauseOfIncident}</p>
+                </div>
+              );
+            })
+          )}
+        </div>
       </div>
     </>
   );
